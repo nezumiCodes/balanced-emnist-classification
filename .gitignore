@@ -3,3 +3,5 @@ mlp.onnx
 pyenv.cfg
 ruff.toml
 emnist-balanced-mapping.txt
+emnist-balanced-test.csv
+report.pdf
