@@ -1,0 +1,5 @@
+cnn.onnx
+mlp.onnx
+pyenv.cfg
+ruff.toml
+emnist-balanced-mapping.txt
