@@ -2,13 +2,12 @@
 
 <div align="justify">
 The EMNIST (Extended MNIST) dataset derives from the NIST Special Database 19, specifically from the MNIST database subset, and contains a set of handwritten letters and numbers converted to 28x28 pixels. The images are in greyscale, meaning they only contain 1 channel. Six different splits are provided for the dataset: ByClass,
-ByMerge, Balanced, Letters, Digits and MNIST. 
+ByMerge, Balanced, Letters, Digits and MNIST. <br />
 
-<br>
 For this project, the Balanced split has been used, which contains 47 classes that correspond to digits 0-9, all uppercase letters and lowercase letters except ’c’, ’i’, ’j’, ’k’, ’l’, ’m’, ’o’, ’p’, ’s’, ’u’, ’v’, ’w’, ’x’, ’y’ and ’z’. These lowercase letters have been removed from the Balanced dataset to avoid classification errors caused by the misclassification of the lowercase letters with their uppercase counterparts. The training set contains 112,799 images, and the test set contains 18,799 images. The labels in the datasets are in the first column and mapped to their respective characters using the ASCII code. The image below show 25 randomly picked images from the training set along with their true labels.
-
 </div>
 
+<br>
 <p align="center">
 <img src="./images/training_set.png" alt="Visualisation of 25 random images from the EMNIST training dataset after transformation" style="width:50%;">
 <p align="center">Figure 1: Visualisation of 25 random images from the training dataset after transformation</p>
@@ -27,6 +26,7 @@ Two deep learning models have been constructed for the classification of the EMN
 For the MLP modules, the number of fully connected layers is also given as a parameter output layer sizes by proving their sizes. In contrast, the input size is always 784 (28x28 pixels), representing the flattened images. If provided, batch normalisation has been applied to all layers, along with the activation function and dropout rate. For this project 4 fully connected layers were implemented with the option to scale up. The baseline architecture of the MLP model has been visualised with Netron and can be seen in Figure 2.
 </div>
 
+<br>
 <p align="center">
 <img src="./images/mlp.png" alt="Model architecture of MLP (before hyperparameter tuning)" style="width:15%;">
 <p align="center">Figure 2: Model architecture of MLP (before hyperparameter tuning)</p>
@@ -40,6 +40,7 @@ The CNN model follows a similar structure to the MLP model. The number of convol
 classes in the Balanced Dataset. After applying the activation function on the convolutional layer, a pooling layer has been used to reduce the feature map’s spatial dimensionality for the next layer. Max Pooling has been chosen as it is widely used in image processing to extract the features/values that are highest overall, thus making it more important for training. Dropout and Batch Normalisation layers are added conditionally based on the parameters `use_dropout` and `use_batchnorm`, which are boolean. The baseline architecture of the CNN model can be seen in Figure 3.
 </div>
 
+<br>
 <p align="center">
 <img src="./images/cnn.png" alt="Model architecture of CNN (before hyperparameter tuning)" style="width:15%;">
 <p align="center">Figure 3: Model architecture of CNN (before hyperparameter tuning)</p>
@@ -52,6 +53,7 @@ classes in the Balanced Dataset. After applying the activation function on the c
 Various hyperparameters were considered to create low-loss and high-accuracy models. In Figure 4, the tested parameters are presented. The tuning was performed using `GridSearhCV` with 5-fold cross-validation, scoring based on model accuracy, and using all available processors to run parallel jobs and reduce computational time. The total candidates for both models were 684, resulting in 3240 fits. For both hyperparameter tuning and training, ten (10) epochs were used and batches of 64 samples.
 </div>
 
+<br>
 <p align="center">
 <img src="./images/optimised-parameters.png" alt="Hyperparemeters considered for optimising MLP and CNN models" style="width:50%;">
 <p align="center">Figure 4: Hyperparemeters considered for optimising MLP and CNN models</p>
@@ -63,6 +65,7 @@ The hyperparameter results for MLP and CNN models show that the CNN model achiev
 performance. The MLP model had larger output layer sizes (256, 128, and 47) and did not use dropout. CNN’s advanced architecture and regularisation strategies appear to provide a more robust learning framework than the MLP.
 </div>
 
+<br>
 <p align="center">
 <img src="./images/tuned-mlp.png" alt="Training loss and accuracy for the tuned MLP" style="width:50%;">
 <br>
@@ -77,6 +80,7 @@ performance. The MLP model had larger output layer sizes (256, 128, and 47) and 
 The evaluation results reflect a robust performance with low prediction error rates for both models, as seen in Figure 6. MLP had a test loss of 0.67, an accuracy of 79.143%, correctly classifying the test data about 79% of the time. CNN achieved a slightly higher accuracy of 84.048% and a lower test loss of 0.48. The precision and recall values of MLP, at 79.4% and 79.1%, respectively, suggest that the model has a good balance between identifying correct positive predictions and capturing most of the true positive instances. For CNN, both of these metrics scored higher; precision was measured at 0.842 and recall at 0.841. The F1-Score, which combines precision and recall, is 83.9% for MLP and 78.9% for CNN, confirming a balanced approach.
 </div>
 
+<br>
 <p align="center">
 <img src="./images/model-metrics.png" alt="Table with comparison of prediction metrics between MLP and CNN models" style="width:35%;">
 <p align="center">Figure 6: Comparison of prediction metrics between MLP and CNN models</p>
@@ -87,6 +91,7 @@ The evaluation results reflect a robust performance with low prediction error ra
 Figure 7 illustrates the first six samples of the test set along their true and predicted labels; it can be seen that the predictions are the same both for MLP and CNN. CNN has slightly fewer misclassifications and but encounters the same pitfalls as MLP. Uppercase ’O’ (Oh) is often misclassified for zero (0), while the reverse does not happen often. Another common misclassification is that both models mistaken uppercase ’L’ (Ell) with one (1). The models often confuse lowercase ’q’ for the number 9. One last misclassification prevalent in the heatmaps within the `Juputer Notebook` is between uppercase ’F’ and lowercase ’f’.
 </div>
 
+<br>
 <p align="center">
 <img src="./images/prediction-mlp.png" alt="images from the test set with their true and predicted labels for the tuned MLP" style="width:50%;">
 <br>
