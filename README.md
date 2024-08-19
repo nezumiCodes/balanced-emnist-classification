@@ -2,8 +2,10 @@
 
 <div align="justify">
 The EMNIST (Extended MNIST) dataset derives from the NIST Special Database 19, specifically from the MNIST database subset, and contains a set of handwritten letters and numbers converted to 28x28 pixels. The images are in greyscale, meaning they only contain 1 channel. Six different splits are provided for the dataset: ByClass,
-ByMerge, Balanced, Letters, Digits and MNIST. <br />
+ByMerge, Balanced, Letters, Digits and MNIST.  
+</div>
 
+<div align="justify">
 For this project, the Balanced split has been used, which contains 47 classes that correspond to digits 0-9, all uppercase letters and lowercase letters except ’c’, ’i’, ’j’, ’k’, ’l’, ’m’, ’o’, ’p’, ’s’, ’u’, ’v’, ’w’, ’x’, ’y’ and ’z’. These lowercase letters have been removed from the Balanced dataset to avoid classification errors caused by the misclassification of the lowercase letters with their uppercase counterparts. The training set contains 112,799 images, and the test set contains 18,799 images. The labels in the datasets are in the first column and mapped to their respective characters using the ASCII code. The image below show 25 randomly picked images from the training set along with their true labels.
 </div>
 
