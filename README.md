@@ -105,7 +105,7 @@ Figure 7 illustrates the first six samples of the test set along their true and 
 <div align="justify">
 When comparing multi-layer perceptrons (MLPs) and convolutional neural networks (CNNs), it’s apparent that CNNs are generally better suited for image classification tasks due to their architecture’s spatial awareness. CNNs consist of convolutional layers that excel at capturing local features and hierarchies, allowing them to process and analyse images more effectively. This advantage is reflected in the superior accuracy rates achieved by CNNs in the project, which started at 54.99% and reached 85.496%, along with a significant reduction in loss from 1.598 to 0.424. These results demonstrate CNNs’ capacity to detect patterns and learn from data efficiently, making them ideal for image recognition and classification tasks.
 </div>
-
+<br>
 <div align="justify">
 On the other hand, MLPs are more general-purpose neural networks that lack the spatial awareness inherent in CNNs. As a result, they may struggle with image-related tasks, as observed in their lower accuracy rates, which increased from 55.56% to 78.47%, and loss values that started at 1.476 and decreased to 0.677. The pros of MLPs include simplicity and flexibility, making them suitable for various tasks, but their lack of convolutional layers means they might miss crucial spatial information in image data. Overall, this project demonstrated that while MLPs and CNNs can learn and improve over time, CNNs offer a clear advantage in image classification due to their specialised architecture, suggesting that further refinement and regularisation strategies could bridge the performance gap between these two models.
 </div>
